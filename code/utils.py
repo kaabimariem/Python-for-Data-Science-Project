@@ -18,7 +18,7 @@ def get_logger(name):
 
 # Directory constants
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_PATH = os.path.normpath(os.path.join(BASE_DIR, "..", "data", "HR-Employee-Attrition.csv"))
+DATA_PATH = os.path.normpath(os.path.join(BASE_DIR, "..", "data", "WA_Fn-UseC_-HR-Employee-Attrition.csv"))
 MODEL_DIR = os.path.join(BASE_DIR, "models")
 MODEL_PATH = os.path.join(MODEL_DIR, "attrition_model.joblib")
 FEATURE_COLS_PATH = os.path.join(MODEL_DIR, "feature_cols.joblib")

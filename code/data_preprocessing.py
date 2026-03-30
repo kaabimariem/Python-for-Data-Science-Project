@@ -5,18 +5,13 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.utils import resample
 import os
 import joblib
-from utils import get_logger
+from utils import get_logger, DATA_PATH
 
 logger = get_logger("Preprocessing")
 
 class DataPreprocessor:
-    def __init__(self, data_path=None):
-        if data_path is None:
-            # Resolve path relative to this script
-            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            self.data_path = os.path.join(base_dir, "data", "HR-Employee-Attrition.csv")
-        else:
-            self.data_path = data_path
+    def __init__(self, data_path=DATA_PATH):
+        self.data_path = data_path
         self.scaler = StandardScaler()
         self.le = LabelEncoder()
         self.feature_columns = None

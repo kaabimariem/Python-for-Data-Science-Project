@@ -2,7 +2,7 @@ import joblib
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 from data_preprocessing import DataPreprocessor
-from utils import get_logger
+from utils import get_logger, MODEL_PATH
 import os
 
 logger = get_logger("Model Training")
@@ -30,10 +30,8 @@ def train_model():
     logger.info(f"Classification Report:\n{report}")
 
     # 4. Save Model
-    os.makedirs("models", exist_ok=True)
-    model_path = os.path.join("models", "attrition_model.joblib")
-    joblib.dump(model, model_path)
-    logger.info(f"Model saved to {model_path}")
+    joblib.dump(model, MODEL_PATH)
+    logger.info(f"Model saved to {MODEL_PATH}")
 
     return model
 

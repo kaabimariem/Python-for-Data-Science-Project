@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 import os
 from typing import Optional
-from utils import get_logger
+from utils import get_logger, MODEL_PATH, FEATURE_COLS_PATH
 
 logger = get_logger("API")
 
@@ -22,10 +22,6 @@ app.add_middleware(
 )
 
 # Load model and features
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, "models", "attrition_model.joblib")
-FEATURE_COLS_PATH = os.path.join(BASE_DIR, "models", "feature_cols.joblib")
-
 if not os.path.exists(MODEL_PATH):
     logger.warning("Model not found. You must run model_training.py before using /predict.")
     model = None

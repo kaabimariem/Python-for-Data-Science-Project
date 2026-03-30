@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
-from utils import get_logger
+from utils import get_logger, DATA_PATH
 
 logger = get_logger("EDA")
 
@@ -10,8 +10,7 @@ def perform_eda():
     logger.info("Starting Exploratory Data Analysis...")
     
     # Load dataset
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    data_path = os.path.join(base_dir, "data", "HR-Employee-Attrition.csv")
+    data_path = DATA_PATH
     if not os.path.exists(data_path):
         logger.error(f"Dataset not found at {data_path}")
         return
