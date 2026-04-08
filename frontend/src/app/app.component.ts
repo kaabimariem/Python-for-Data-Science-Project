@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
 
   private initForm(): void {
     this.attritionForm = this.fb.group({
-      Age: [35, [Validators.required, Validators.min(18), Validators.max(100)]],
+      Age: [54, [Validators.required, Validators.min(18), Validators.max(100)]],
       BusinessTravel: ['Travel_Rarely', Validators.required],
       DailyRate: [800, [Validators.required, Validators.min(100)]],
       Department: ['Sales', Validators.required],

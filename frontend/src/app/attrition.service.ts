@@ -20,7 +20,7 @@ export class AttritionService {
     return this.http.post<AttritionResponse>(`${this.apiUrl}/predict`, employeeData);
   }
 
-  checkHealth(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/health`);
-  }
+  // checkHealth(): Observable<any> {
+  //   return this.http.get(`${this.apiUrl}/health`);
+  // }
 }

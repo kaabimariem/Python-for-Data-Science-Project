@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  # The Python Backend Service
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "8000:8000" # Host Port : Container Port
+    volumes:
+      - ./data:/app/data # Persist data if container dies
+      - ./code/models:/app/models # Mount models for prediction
+
+  # The Angular Frontend Service
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "5173:80" # Access dashboard at localhost:5173
+    depends_on:
+      - backend # Make sure backend starts first
